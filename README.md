@@ -20,69 +20,31 @@ To implement univariate Linear Regression to fit a straight line using least squ
 ```
 /*
 Program to implement univariate Linear Regression to fit a straight line using least squares.
-Developed by: Ganesh P
-RegisterNumber:  212220040112
+Developed by:P Ganesh
+RegisterNumber:212220040112
 */
-
-# least square method
-
+import numpy as np 
 import matplotlib.pyplot as plt
-x=[5,6,3,2,6,7,1,2]
-y=[2,3,6,5,8,3,5,8]
-plt.scatter(x,y);
-plt.plot(x,y)
-plt.show()
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-# assign input
-
-X=np.array([0,1,2,3,4,5,6,7,8,9])
-Y=np.array([1,3,2,5,7,8,8,9,10,12])
-
-# mean values of input
-
-X_mean=np.mean(X)
-print(X_mean)
-Y_mean=np.mean(Y)
-print(Y_mean)
-
-num=0
-denum=0
-
-for i in range (len(X)):
-  num+=(X[i]-X_mean)*(Y[i]-Y_mean)
-  denum+=(X[i]-X_mean)**2
-  
-# find m
-
-m=num/denum
-print(m)
-
-# find b
-
-b=Y_mean-m*X_mean
-print(b)
-
-# find Y_pred
-
-Y_pred=m*X+b
-print(Y_pred)
-
-# plot graph
-
-plt.scatter(X,Y)
-plt.plot(X,Y_pred,color='green')
+x=np.array(eval(input()))
+y=np.array(eval(input()))
+ss=np.mean(x)
+sa=np.mean(y)
+num,demon=0,0
+for i in range (len(x)):
+  num+=(x[i]-ss)*(y[i]-sa)
+  demon+=(x[i]-ss)**2
+m=num/demon
+b=sa-m*ss
+print(m,b)
+wa=m*x+b
+print(wa)
+plt.scatter(x,y)
+plt.plot(x,wa,color="Red")
 plt.show()
 ```
 
 ## Output:
-![op1](https://user-images.githubusercontent.com/93427205/202080358-74ae3081-209e-4f24-aaaa-8971a9416617.png)
-![op2](https://user-images.githubusercontent.com/93427205/202080368-14304af5-9a9d-4b7f-b0ec-f55e326bad81.png)
-![op3](https://user-images.githubusercontent.com/93427205/202080378-4f940cde-e9c9-4091-b869-bd0ba537fde5.png)
-
-
+![best fit line](ML.png)
 
 
 ## Result:
